@@ -11,17 +11,14 @@ let aboutWin
 function createMainWindow() {
   mainWin = new BrowserWindow({
     width: isDev ? 1120 : 440,
-    // width: 440,
     height: 650,
     minWidth: 370,
     minHeight: 600,
     icon: `${__dirname}/assets/icons/Icon_256x256.png`,
-    // resizeble: isDev,
     webPreferences: { nodeIntegration: true, contextIsolation: false }
   })
   if (isDev) mainWin.webContents.openDevTools()
   mainWin.loadFile('./app/index.html')
-  // mainWin.loadURL(`file://${__dirname}/app/index.html`)
 }
 
 function createAboutWindow() {
@@ -32,7 +29,6 @@ function createAboutWindow() {
     autoHideMenuBar: true
   })
   aboutWin.loadFile('./app/about.html')
-  // aboutWin.loadURL(`file://${__dirname}/app/about.html`)
 }
 
 ipcMain.on('img:sizeReduce', (e, { imgPath, outputPath, quality }) => {
@@ -46,7 +42,6 @@ ipcMain.on('img:sizeReduce', (e, { imgPath, outputPath, quality }) => {
       console.log('error: ', error);
       console.log('completed: ', completed);
       e.reply('reply-size', error)
-      // mainWin.webContents.send('reply-size')
       console.log("-------------");
     })
 })
@@ -82,7 +77,6 @@ ipcMain.on('mainWin:resize', (e, resize) => {
 
 app.on('ready', () => {
   createMainWindow()
-  // createAboutWindow()
   const mainMenu = Menu.buildFromTemplate(menu)
   Menu.setApplicationMenu(mainMenu)
   globalShortcut.register('Ctrl+R', () => mainWin.reload())
@@ -104,7 +98,6 @@ const menu = [
       { role: 'forcereload' },
       { type: 'separator' },
       ...isDev ? { role: 'toggledevtools', label: 'Dev Tools', accelerator: 'Ctrl+D' } : '',
-      // { role: 'toggledevtools', label: 'Dev Tools', accelerator: 'Ctrl+D' },
     ]
   }
 ]
