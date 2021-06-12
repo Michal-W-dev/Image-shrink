@@ -1,0 +1,27 @@
+{
+  "name": "image-shrink-app",
+  "productName": "ImageShrink",
+  "version": "1.0.0",
+  "description": "App for shrinking image",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon --exec electron . -e .js,html,css",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=false --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"ImageShrink\"",
+    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=false --out=release-builds"
+  },
+  "author": "Michal-W-dev",
+  "license": "ISC",
+  "dependencies": {
+    "compress-images": "^1.9.9",
+    "gifsicle": "^5.2.0",
+    "pngquant-bin": "^4.0.0",
+    "slash": "^3.0.0"
+  },
+  "devDependencies": {
+    "electron": "^13.1.1",
+    "electron-packager": "^15.2.0",
+    "nodemon": "^2.0.7"
+  }
+}
