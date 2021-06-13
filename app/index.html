@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'" />
+  <link rel='stylesheet' href='index.css' />
+  <title>ImageShrink --</title>
+</head>
+
+<body>
+
+  <main>
+    <h1>Image-Shrink</h1>
+    <p>Choose an image to resize</p>
+
+    <form id='image-form'>
+      <label class='btn btn-browse'>
+        BROWSE<input id='img' type="file">
+        <span id='img-size'></span>
+      </label>
+      <p>Quality: The lower the quality, the smaller the filesize</p>
+      <input id='slider' type='range' max='100' value="100" />
+      <input type="submit" class='btn btn-resize' value="RESIZE" disabled />
+    </form>
+
+    <div class="card-content">
+      Output Path: <span id="output-path"></span>
+    </div>
+    <button id='btn-imgPreview'>Preview</button>
+    <div class='toggleFlex-container'>
+      <div class='toggleFlex change-toggleFlex'>
+        <span class='toggleFlex-on'>Flex</span>
+        <span class='toggleFlex-off'>OFF</span>
+      </div>
+    </div>
+    <div class='toads'></div>
+  </main>
+
+  <section class='img-preview-container'></section>
+</body>
+<script src="index.js"></script>
+
+</html>
