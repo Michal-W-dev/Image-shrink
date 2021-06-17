@@ -1,0 +1,222 @@
+@font-face {
+    font-family: "Nunito";
+    src: url("../assets/fonts/Nunito-Light.ttf");
+}
+
+@font-face {
+    font-family: "Nunito-light";
+    src: url("../assets/fonts/Nunito-ExtraLight.ttf");
+}
+
+@font-face {
+    font-family: "Nunito-bold";
+    src: url("../assets/fonts/Nunito-Bold.ttf");
+}
+
+:root {
+    --imgUrl: '';
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: Nunito;
+    font-size: 9px;
+    text-shadow: 1px 1px black;
+    width:100%;
+}
+
+body {
+    display:flex;
+    height: 100vh;
+}
+
+main {
+    text-align: center;
+    /* flex:1; */
+    padding-top: 1.5rem;
+    position:relative;
+    color:white;
+    background-color: darkslateblue;
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    border: 1px solid slateblue;
+    border-radius: 4px;
+    width: 440px;
+    min-width: 352px;
+    /* transition: 0.1s; */
+    overflow:hidden;
+}
+
+section.img-preview-container {
+    width: 0;
+    background-color: darkslateblue;
+    transition: width 0.7s 0.3s ease-in-out;
+}
+
+section.toggleImg {
+    width: 100%;
+    background: var(--imgUrl) center/cover;   
+}
+
+#btn-imgPreview {
+    position: absolute;
+    letter-spacing: 1px;
+    color:white;
+    top: 5px;
+    left: 5px;
+    padding: 3px 15px;
+    border-radius: 20px 0 20px 0;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.toggleFlex-container {
+    position: absolute;
+    letter-spacing: 1px;
+    color:white;
+    transform: skew(-10deg);
+    top: 7px;
+    right: 9px;
+    padding: 0px 15px;
+    background-position: 50%;
+    background-size: 200%;
+    background-color: slateblue;
+    width: 80px;
+    overflow:hidden;
+}
+
+.toggleFlex {
+    position: relative;
+    display:flex;
+    justify-content: space-between;
+    width: 151px;
+    left: 7px;
+    transition: 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toggleFlex-off {
+    padding-right: 22px;
+}
+
+.change-toggleFlex {
+    left:-85px;
+    background-color: grey;
+}
+
+h1 {
+    font-family: Nunito-light;
+    margin: 1.5rem 1rem;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 20px black;
+}
+
+hr {
+    box-shadow: 0 1px 1px rgb(68, 68, 68);
+}
+
+form {
+    height: 55%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 11px;
+}
+
+input {
+    width: 70%;
+    outline:none;
+}
+
+.btn {
+    display: block;
+    font-family: Nunito-bold;
+    font-size: 15px;
+    color: lavender;
+    margin: 30px auto;
+    padding: 10px;
+    width: 89%;
+    letter-spacing: 4px;
+    border-radius: 7px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid grey;
+    border-bottom: 4px solid lavender;
+    box-shadow: 2px 3px 10px 0px rgb(47, 47, 47);
+    transition: transform 0.3s, box-shadow 0.4s, width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn:hover {
+    box-shadow: 2px 3px 11px 3px rgb(47, 47, 47);
+    color: white;
+    border-bottom: 4px solid white;
+    width: 95%;
+}
+
+.btn:active {
+    box-shadow: 1px 3px 5px 3px rgb(29, 29, 29);
+    transform: translate(0, 1px);
+}
+
+.btn-browse {
+    background-color: teal;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type=file] {
+    position: absolute;
+    visibility: hidden;
+}
+
+.btn-resize {
+    background-color: black;
+}
+
+.card-content {
+    width: 87%;
+    border: 1px solid white;
+    background-color: rgba(0,0,0,0.1);
+    box-shadow: 3px 3px 10px black;
+    padding: 2rem 0.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+#output-path {
+    display:block;
+    margin-top: 2px;
+}
+
+.toads {
+    position:absolute;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    bottom: -55px;
+    height: 55px;
+    width:100%;
+    padding-bottom: 15px;
+    background-color: rgba(0,0,0,0.8);
+    opacity: 0;
+}
+@keyframes toads {
+    10% { transform:translateY(-40px); opacity:0.9 }
+    80% { transform:translateY(-40px); opacity:1 }
+}
+
+/* @media only screen and (max-width: 500px) {
+    html { font-size: 9px; }
+  } */
